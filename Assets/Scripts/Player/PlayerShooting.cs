@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerShooting : MonoBehaviour
 {
-    public int damagePerShot = 20;                  
+    public int initialDamage = 20;             
     public float timeBetweenBullets = 0.15f;        
     public float range = 100f;                      
+    public int power = 1;
+    public int maxpower = 10;
+    public Slider powerSlider;
 
     float timer;                                    
     Ray shootRay;                                   
@@ -14,6 +18,7 @@ public class PlayerShooting : MonoBehaviour
     LineRenderer gunLine;                           
     AudioSource gunAudio;                           
     Light gunLight;                                 
+    int initPower = 1;
     float effectsDisplayTime = 0.2f;                
 
     void Awake()
@@ -23,6 +28,8 @@ public class PlayerShooting : MonoBehaviour
         gunLine = GetComponent<LineRenderer>();
         gunAudio = GetComponent<AudioSource>();
         gunLight = GetComponent<Light>();
+        powerSlider = GameObject.Find("PowerSlider").GetComponent<Slider>();
+        powerSlider.minValue = initPower;
     }
 
     void Update()
@@ -44,6 +51,11 @@ public class PlayerShooting : MonoBehaviour
     {
         gunLine.enabled = false;
         gunLight.enabled = false;
+    }
+
+    public void powerUpdater() {
+        power += 1;
+        powerSlider.value = power;
     }
 
     void Shoot()
@@ -69,6 +81,7 @@ public class PlayerShooting : MonoBehaviour
 
             if (enemyHealth != null)
             {
+                int damagePerShot = initialDamage * power;
                 enemyHealth.TakeDamage(damagePerShot, shootHit.point);
             }
 

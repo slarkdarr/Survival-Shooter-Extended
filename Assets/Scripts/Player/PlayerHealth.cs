@@ -4,7 +4,9 @@ using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public int maxHealthThreshold = 200;
     public int startingHealth = 100;
+    public int maxHealth;
     public int currentHealth;
     public Slider healthSlider;
     public Image damageImage;
@@ -23,11 +25,15 @@ public class PlayerHealth : MonoBehaviour
 
     void Awake()
     {
+        maxHealth = 100;
         animation = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
         playerMovement = GetComponent<PlayerMovement>();
         playerShooting = GetComponentInChildren<PlayerShooting>();
+        healthSlider = GameObject.Find("HeartSlider").GetComponent<Slider>();
         currentHealth = startingHealth;
+        healthSlider.maxValue = maxHealth;
+        healthSlider.value = currentHealth;
     }
 
 
@@ -76,5 +82,15 @@ public class PlayerHealth : MonoBehaviour
 
         playerMovement.enabled = false;
         playerShooting.enabled = false;
+    }
+
+    public void healthUpdater() {
+        currentHealth += 20;
+        healthSlider.value = currentHealth;
+    }
+
+    public void maxHealthUpdater() {
+        maxHealth += 20;
+        healthSlider.maxValue = maxHealth;
     }
 }

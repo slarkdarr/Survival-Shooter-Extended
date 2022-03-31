@@ -8,13 +8,18 @@ public class EnemyHealth : MonoBehaviour
     public int scoreValue = 10;
     public AudioClip deathClip;
 
-
+    
     Animator animation;
     AudioSource enemyAudio;
     ParticleSystem hitParticles;
     CapsuleCollider capsuleCollider;
     bool isDead;
     bool isSinking;
+
+    GameObject player;
+    PlayerMovement pmovement;
+    PlayerHealth phealth;
+    PlayerShooting pshooting;
 
 
     void Awake ()
@@ -25,6 +30,12 @@ public class EnemyHealth : MonoBehaviour
         capsuleCollider = GetComponent <CapsuleCollider> ();
 
         currentHealth = startingHealth;
+
+        // EDIT
+        player = GameObject.FindGameObjectWithTag ("Player");
+        pmovement = player.GetComponent <PlayerMovement> ();
+        phealth = player.GetComponent <PlayerHealth> ();
+        pshooting = player.GetComponentInChildren <PlayerShooting> ();
     }
 
 
@@ -58,6 +69,38 @@ public class EnemyHealth : MonoBehaviour
 
     void Death ()
     {
+        if (pmovement.speed<pmovement.maxspeed) {
+            pmovement.speedUpdater();
+            if (pmovement.speed>=pmovement.maxspeed) {
+                pmovement.speed = pmovement.maxspeed;
+            }
+            Debug.Log("Speed = " + pmovement.speed);
+        }
+
+        if (phealth.maxHealth < phealth.maxHealthThreshold) {
+            phealth.maxHealthUpdater();
+            if (phealth.maxHealth >= phealth.maxHealthThreshold) {
+                phealth.maxHealth = phealth.maxHealthThreshold;
+            }
+            Debug.Log("Max health = " + phealth.maxHealth);
+        }
+
+        if (phealth.currentHealth <= phealth.maxHealth) {
+            phealth.healthUpdater();
+            if (phealth.currentHealth > phealth.maxHealth) {
+                phealth.currentHealth = phealth.maxHealth;
+            }
+            Debug.Log("Current health = " + phealth.currentHealth);
+        }
+
+        if (pshooting.power < pshooting.maxpower) {
+            pshooting.powerUpdater();
+            if (pshooting.power>=pshooting.maxpower) {
+                pshooting.power = pshooting.maxpower;
+            }
+            Debug.Log("Power = " + pshooting.power);
+        }
+
         isDead = true;
 
         capsuleCollider.isTrigger = true;
