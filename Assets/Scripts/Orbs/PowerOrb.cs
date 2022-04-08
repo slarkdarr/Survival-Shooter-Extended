@@ -4,15 +4,45 @@ using UnityEngine;
 
 public class PowerOrb : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    GameObject player;
+    PlayerShooting pshooting;
+
+    void Awake ()
     {
-        
+        player = GameObject.FindGameObjectWithTag ("Player");
+        pshooting = player.GetComponentInChildren <PlayerShooting> ();
+        StartCoroutine(Dikacangin());
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter (Collider other)
     {
-        
+        if(other.gameObject == player && other.isTrigger == false)
+        {
+            Pickup();
+        }
+    }
+
+    // void OnTriggerExit (Collider other)
+    // {
+    //     if(other.gameObject == player)
+    //     {
+    //         Pickup();
+    //     }
+    // }
+
+    void Pickup() {
+        if (pshooting.power < pshooting.maxpower) {
+            pshooting.powerUpdater();
+            if (pshooting.power>=pshooting.maxpower) {
+                pshooting.power = pshooting.maxpower;
+            }
+            Debug.Log("Power = " + pshooting.power);
+        }
+        Destroy (gameObject);
+    }
+
+    IEnumerator Dikacangin() {
+        yield return new WaitForSeconds(4f);
+        Destroy(gameObject);
     }
 }

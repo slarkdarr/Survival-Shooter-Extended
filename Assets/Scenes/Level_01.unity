@@ -1041,7 +1041,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1472008357}
   enemy: {fileID: 0}
-  spawnTime: 2
+  spawnTime: 3
   spawnPoints:
   - {fileID: 1804177053}
   - {fileID: 298420552}
@@ -1107,14 +1107,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4070705e1b2174aa43f70db4ab829d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orb: {fileID: -2702164618512473492, guid: 18055c06028f1cb4ebcb60af283be177, type: 3}
+  playerHealth: {fileID: 1472008357}
+  orb: {fileID: 0}
   spawnTime: 3
-  spawnPoints:
-  - {fileID: 1021662564}
-  - {fileID: 1590626688}
-  - {fileID: 1173340908}
   orbPrefab:
-  - {fileID: 314639112212354173, guid: 18055c06028f1cb4ebcb60af283be177, type: 3}
+  - {fileID: 8604694245365449306, guid: 18055c06028f1cb4ebcb60af283be177, type: 3}
+  - {fileID: 8832611678248516755, guid: 8f43c3aad24438d4ca461c3a44a062b0, type: 3}
+  - {fileID: 3220508457266557383, guid: 4969609c72dae97468a26e04e3de455d, type: 3}
+  MinX: 0
+  MaxX: 10
+  Y: 1
+  MinZ: 0
+  MaxZ: 10
 --- !u!1 &958782005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,36 +1305,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017029102}
   m_CullTransparentMesh: 1
---- !u!1 &1021662563
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1021662564}
-  m_Layer: 0
-  m_Name: OrbSpawn1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1021662564
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021662563}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1033353720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,36 +1416,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164571076}
   m_CullTransparentMesh: 1
---- !u!1 &1173340907
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1173340908}
-  m_Layer: 0
-  m_Name: OrbSpawn3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1173340908
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1173340907}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: -5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1335764804
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,36 +2335,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579145125}
   m_CullTransparentMesh: 1
---- !u!1 &1590626687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1590626688}
-  m_Layer: 0
-  m_Name: OrbSpawn2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1590626688
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590626687}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1703985129
 PrefabInstance:
   m_ObjectHideFlags: 0

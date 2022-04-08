@@ -4,15 +4,45 @@ using UnityEngine;
 
 public class SpeedOrb : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    GameObject player;
+    PlayerMovement pmovement;
+
+    void Awake ()
     {
-        
+        player = GameObject.FindGameObjectWithTag ("Player");
+        pmovement = player.GetComponent <PlayerMovement> ();
+        StartCoroutine(Dikacangin());
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter (Collider other)
     {
-        
+        if(other.gameObject == player && other.isTrigger == false)
+        {
+            Pickup();
+        }
+    }
+
+    // void OnTriggerExit (Collider other)
+    // {
+    //     if(other.gameObject == player)
+    //     {
+    //         Pickup();
+    //     }
+    // }
+
+    void Pickup() {
+        if (pmovement.speed<pmovement.maxspeed) {
+            pmovement.speedUpdater();
+            if (pmovement.speed>=pmovement.maxspeed) {
+                pmovement.speed = pmovement.maxspeed;
+            }
+            Debug.Log("Speed = " + pmovement.speed);
+        }
+        Destroy (gameObject);
+    }
+
+    IEnumerator Dikacangin() {
+        yield return new WaitForSeconds(4f);
+        Destroy(gameObject);
     }
 }

@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class OrbManager : MonoBehaviour
 {
-    public Orb orb;
+    public PlayerHealth playerHealth;
     public float spawnTime = 3f;
-    public Transform[] spawnPoints;
+    //public Transform[] spawnPoints;
     public GameObject[] orbPrefab;
+    public float MinX = 0;
+    public float MaxX = 10;
+    public float Y = 1;
+    public float MinZ = 0;
+    public float MaxZ = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -16,17 +21,18 @@ public class OrbManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Spawn()
     {
-        if (orb.abc<100)
+        if (playerHealth.currentHealth <= 0f)
         {
             return;
         }
+        float x = Random.Range(MinX,MaxX);
+        float z = Random.Range(MinZ,MaxZ);
 
-
-        int spawnPointIndex = Random.Range (0, spawnPoints.Length);
-        int spawnEnemy = Random.Range(0,orbPrefab.Length);
-        Instantiate(orbPrefab[spawnEnemy], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        //int spawnPointIndex = Random.Range (0, spawnPoints.Length);
+        int spawnOrb = Random.Range(0, orbPrefab.Length);
+        Instantiate(orbPrefab[spawnOrb], new Vector3(x,Y,z), Quaternion.identity);
 
     }
 }
