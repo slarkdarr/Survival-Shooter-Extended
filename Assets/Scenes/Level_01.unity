@@ -2175,7 +2175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1472008357}
-  restartDelay: 3
+  restartDelay: 2
 --- !u!95 &1541151288
 Animator:
   serializedVersion: 3

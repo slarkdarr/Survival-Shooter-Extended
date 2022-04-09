@@ -8,7 +8,8 @@ using UnityEngine.SceneManagement;
 public class ScoreManager : MonoBehaviour
 {
     public static float score;
-    private List<ScoreClass> scores;
+    public static List<ZenScore> zenScores = new List<ZenScore>();
+    public static List<WaveScore> waveScores = new List<WaveScore>();
 
     Text text;
 
@@ -16,7 +17,6 @@ public class ScoreManager : MonoBehaviour
     {
         text = GetComponent <Text> ();
         score = 0;
-        scores = new List<ScoreClass>();
     }
 
 
@@ -27,11 +27,15 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public IEnumerable<ScoreClass> getHighScores() {
-        return scores.OrderByDescending(x => x.score);
+    public IEnumerable<ZenScore> getHighScoresZen() {
+        return zenScores.OrderByDescending(x => x.score);
     }
 
-    public void AddScore(ScoreClass score) {
-        scores.Add(score);
+    public static void AddScoreZen(ZenScore score) {
+        zenScores.Add(score);
+    }
+
+    public static void AddScoreWave(WaveScore score) {
+        waveScores.Add(score);
     }
 }

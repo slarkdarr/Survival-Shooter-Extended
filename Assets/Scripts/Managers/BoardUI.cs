@@ -11,15 +11,14 @@ public class BoardUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreManager.AddScore(new ScoreClass("abc", 50));
-        scoreManager.AddScore(new ScoreClass("abc1", 100));
-
-        var scores = scoreManager.getHighScores().ToArray();
-        for (int i=0;i<scores.Length;i++) {
-            var row = Instantiate(rows, transform).GetComponent<BoardRow>();
-            row.rank.text = (i+1).ToString();
-            row.name.text = scores[i].name;
-            row.score.text = scores[i].score.ToString();
+        if (GameLogics.boardMode == 1) {
+            var scores = scoreManager.getHighScoresZen().ToArray();
+            for (int i=0;i<scores.Length;i++) {
+                var row = Instantiate(rows, transform).GetComponent<BoardRow>();
+                row.rank.text = (i+1).ToString();
+                row.name.text = scores[i].name;
+                row.score.text = scores[i].score.ToString();
+            }
         }
     }
 
