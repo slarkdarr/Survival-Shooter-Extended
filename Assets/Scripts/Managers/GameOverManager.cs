@@ -30,6 +30,11 @@ public class GameOverManager : MonoBehaviour
                 // Application.LoadLevel(Application.loadedLevel);
             }
         }
+
+        if (WaveManager.waveNum > WaveManager.waveNumMax)
+        { 
+            SceneManager.LoadScene("GameOver");
+        }
     }
 
     public void ShowWarning() {

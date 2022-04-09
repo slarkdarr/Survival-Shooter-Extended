@@ -6,6 +6,7 @@ using TMPro;
 
 public class GameOverScript : MonoBehaviour
 {
+    public TextMeshProUGUI title;
     public TextMeshProUGUI wave;
     public TextMeshProUGUI score;
 
@@ -13,10 +14,12 @@ public class GameOverScript : MonoBehaviour
     void Start()
     {
         if (GameLogics.mode == 1) {
+            title.text = "DED";
             score.text = "Score: " + ScoreManager.score.ToString();
             ScoreManager.AddScoreZen(new ZenScore(GameLogics.name, ScoreManager.score));
         }
         else if (GameLogics.mode == 2) {
+            title.text = "DED";
             wave.enabled = true;
             wave.text = "Wave: " + WaveManager.waveNum.ToString();
             score.text = "Score: " + ScoreManager.score.ToString();
@@ -24,6 +27,10 @@ public class GameOverScript : MonoBehaviour
             Debug.Log(ScoreManager.waveScores[0].name);
             Debug.Log(ScoreManager.waveScores[0].wave);
             Debug.Log(ScoreManager.waveScores[0].score);
+
+            if (WaveManager.waveNum > WaveManager.waveNumMax) {
+                title.text = "VICTORY";
+            }
         }
     }
 }

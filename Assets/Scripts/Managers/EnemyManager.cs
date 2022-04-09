@@ -17,7 +17,7 @@ public class EnemyManager : MonoBehaviour
     {
         InvokeRepeating("Spawn", spawnTime, spawnTime);
         WaveManager.waveNum = 1;
-        WaveManager.waveWeight = 5;
+        WaveManager.waveWeight = 10;
         enemyKilled = 0;
         enemySpawned = 0;
     }
@@ -64,7 +64,7 @@ public class EnemyManager : MonoBehaviour
             if (waveWeightUsed == WaveManager.waveWeight) {
                 if (enemyKilled == enemySpawned) {
                     WaveManager.waveNum += 1;
-                    WaveManager.waveWeight += 5;
+                    WaveManager.waveWeight *= 2;
                     waveWeightUsed = 0;
                 }
             }

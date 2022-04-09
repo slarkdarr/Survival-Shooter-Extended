@@ -9,13 +9,15 @@ public class WaveManager : MonoBehaviour
 {
     public static int waveNum;
     public static int waveWeight;
+    public static int waveNumMax;
     Text text;
 
     void Awake()
     {
         text = GetComponent<Text>();
         waveNum = 1;
-        waveWeight = 5;
+        waveNumMax = 9;
+        waveWeight = 10;
     }
 
     // Update is called once per frame
