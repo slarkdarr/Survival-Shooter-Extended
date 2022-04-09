@@ -10,10 +10,12 @@ public class PlayerShooting : MonoBehaviour
     public int diag = 0;
     public float range = 5f;                      
     public int power = 1;
+
     public int maxpower = 10;
     public int maxdiag = 2;
     public float maxspeed = 0.075f;
-    public float maxrange = 100f;
+    public float maxrange = 50f;
+
     public Slider powerSlider;
 
     float timer;                                    
@@ -36,8 +38,6 @@ public class PlayerShooting : MonoBehaviour
     float effectsDisplayTime = 0.2f;                
     List<LineRenderer> lines = new List<LineRenderer>();
     Material lineMaterial;
-    bool firstDiagUpgrade = false;
-    bool secondDiagUpgrade = false;
 
 
     void Awake()
@@ -63,56 +63,6 @@ public class PlayerShooting : MonoBehaviour
         if (timer >= timeBetweenBullets * effectsDisplayTime)
         {
             DisableEffects();
-        }
-
-        // Additional gunline
-
-        if (diag != 0 && (firstDiagUpgrade || secondDiagUpgrade))
-        {
-            firstDiagUpgrade = false;
-
-            lineMaterial = Resources.Load("LineRenderMaterial", typeof(Material)) as Material;
-
-            gunLine2 = new GameObject().AddComponent<LineRenderer>();
-            gunLine2.gameObject.name = "GunLine2";
-            gunLine2.gameObject.transform.SetParent(transform, false);
-            // just to be sure reset position and rotation as well
-            gunLine2.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
-
-            gunLine3 = new GameObject().AddComponent<LineRenderer>();
-            gunLine3.gameObject.name = "GunLine3";
-            gunLine3.gameObject.transform.SetParent(transform, false);
-            // just to be sure reset position and rotation as well
-            gunLine3.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
-
-            lines.Add(gunLine2);
-            lines.Add(gunLine3);
-
-            if (diag == 2 && secondDiagUpgrade)
-            {
-                secondDiagUpgrade = false;
-
-                gunLine4 = new GameObject().AddComponent<LineRenderer>();
-                gunLine4.gameObject.name = "GunLine4";
-                gunLine4.gameObject.transform.SetParent(transform, false);
-                // just to be sure reset position and rotation as well
-                gunLine4.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
-
-                gunLine5 = new GameObject().AddComponent<LineRenderer>();
-                gunLine5.gameObject.name = "GunLine5";
-                gunLine5.gameObject.transform.SetParent(transform, false);
-                // just to be sure reset position and rotation as well
-                gunLine5.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
-
-                lines.Add(gunLine4);
-                lines.Add(gunLine5);
-            }
-
-            foreach (var line in lines)
-            {
-                line.material = lineMaterial;
-                line.SetWidth(0.05f, 0.05f);
-            }
         }
     }
 
@@ -141,22 +91,74 @@ public class PlayerShooting : MonoBehaviour
 
     public void addWeaponDiagonal() {
         diag += 1;
+
+        lineMaterial = Resources.Load("LineRenderMaterial", typeof(Material)) as Material;  // load from resources
+
+        // additional diagonal gunlines
+
         if (diag == 1)
         {
-            firstDiagUpgrade = true;
+            gunLine2 = new GameObject().AddComponent<LineRenderer>();
+            gunLine2.gameObject.name = "GunLine2";
+            gunLine2.gameObject.transform.SetParent(transform, false);
+            // just to be sure reset position and rotation as well
+            gunLine2.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+            gunLine3 = new GameObject().AddComponent<LineRenderer>();
+            gunLine3.gameObject.name = "GunLine3";
+            gunLine3.gameObject.transform.SetParent(transform, false);
+            // just to be sure reset position and rotation as well
+            gunLine3.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+            lines.Add(gunLine2);
+            lines.Add(gunLine3);
         }
+
         if (diag == 2)
         {
-            secondDiagUpgrade = true;
+            gunLine2 = new GameObject().AddComponent<LineRenderer>();
+            gunLine2.gameObject.name = "GunLine2";
+            gunLine2.gameObject.transform.SetParent(transform, false);
+            // just to be sure reset position and rotation as well
+            gunLine2.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+            gunLine3 = new GameObject().AddComponent<LineRenderer>();
+            gunLine3.gameObject.name = "GunLine3";
+            gunLine3.gameObject.transform.SetParent(transform, false);
+            // just to be sure reset position and rotation as well
+            gunLine3.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+            gunLine4 = new GameObject().AddComponent<LineRenderer>();
+            gunLine4.gameObject.name = "GunLine4";
+            gunLine4.gameObject.transform.SetParent(transform, false);
+            // just to be sure reset position and rotation as well
+            gunLine4.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+
+            gunLine5 = new GameObject().AddComponent<LineRenderer>();
+            gunLine5.gameObject.name = "GunLine5";
+            gunLine5.gameObject.transform.SetParent(transform, false);
+            // just to be sure reset position and rotation as well
+            gunLine5.gameObject.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
+            
+            lines.Add(gunLine2);
+            lines.Add(gunLine3);
+            lines.Add(gunLine4);
+            lines.Add(gunLine5);
+        }
+
+        foreach (var line in lines)
+        {
+            line.material = lineMaterial;
+            line.SetWidth(0.05f, 0.05f);
         }
     }
 
     public void speedUpdater() {
-        timeBetweenBullets *= 0.95f;
+        timeBetweenBullets *= 0.95f;    // time = 95% original time
     }
 
     public void rangeUpdater() {
-        range *= 1.2f;
+        range *= 1.2f;  // range * 20%
     }
 
     void Shoot()
@@ -176,7 +178,7 @@ public class PlayerShooting : MonoBehaviour
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward; 
 
-        if (diag == 0)
+        if (diag == 0) // Default
         {
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
@@ -199,6 +201,8 @@ public class PlayerShooting : MonoBehaviour
 
         else
         {
+            // + 2 diagonal lines
+
             gunLine2.enabled = true;
             gunLine2.SetPosition(0, transform.position);
 
@@ -207,10 +211,10 @@ public class PlayerShooting : MonoBehaviour
 
 
             shootRay2.origin = transform.position;
-            shootRay2.direction = Quaternion.Euler(0,22,0) * transform.forward;
+            shootRay2.direction = Quaternion.Euler(0,22.5f,0) * transform.forward; // transform the direction 22.5 degrees from forward direction
 
             shootRay3.origin = transform.position;
-            shootRay3.direction = Quaternion.Euler(0,-22,0) * transform.forward;
+            shootRay3.direction = Quaternion.Euler(0,-22.5f,0) * transform.forward; // transform the direction -22.5 degrees from forward direction
 
             if (diag == 1)
             {
@@ -266,6 +270,8 @@ public class PlayerShooting : MonoBehaviour
 
             else
             {
+                // additional 2 diagonal lines (4 in total)
+
                 gunLine4.enabled = true;
                 gunLine4.SetPosition(0, transform.position);
 
@@ -274,10 +280,10 @@ public class PlayerShooting : MonoBehaviour
 
 
                 shootRay4.origin = transform.position;
-                shootRay4.direction = (transform.forward + transform.right).normalized;
+                shootRay4.direction = (transform.forward + transform.right).normalized; // transform the direction 45 degrees from forward direction
 
                 shootRay5.origin = transform.position;
-                shootRay5.direction = (transform.forward - transform.right).normalized;
+                shootRay5.direction = (transform.forward - transform.right).normalized; // transform the direction -45 degrees from forward direction
 
                 if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
                 {
