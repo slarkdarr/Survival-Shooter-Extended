@@ -20,7 +20,8 @@ public class PlayerHealth : MonoBehaviour
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
     bool isDead;                                                
-    bool damaged;                                               
+    bool damaged;          
+                                     
 
 
     void Awake()
@@ -46,6 +47,10 @@ public class PlayerHealth : MonoBehaviour
         else
         {
             damageImage.color = Color.Lerp(damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+        }
+
+        if (GameLogics.mode == 1) {
+            ScoreManager.score +=  Time.deltaTime;
         }
 
         damaged = false;

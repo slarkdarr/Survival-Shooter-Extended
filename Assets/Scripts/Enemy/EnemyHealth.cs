@@ -5,9 +5,8 @@ public class EnemyHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
-    public int scoreValue = 10;
+    // public int scoreValue = 10;
     public AudioClip deathClip;
-
     
     Animator animation;
     AudioSource enemyAudio;
@@ -120,7 +119,6 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<UnityEngine.AI.NavMeshAgent> ().enabled = false;
         GetComponent<Rigidbody> ().isKinematic = true;
         isSinking = true;
-        ScoreManager.score += scoreValue;
         Destroy (gameObject, 2f);
     }
 }
