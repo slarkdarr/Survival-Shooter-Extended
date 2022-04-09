@@ -1056,9 +1056,9 @@ MonoBehaviour:
   playerHealth: {fileID: 1472008357}
   spawnTime: 3
   orbPrefab:
-  - {fileID: 8604694245365449306, guid: 18055c06028f1cb4ebcb60af283be177, type: 3}
-  - {fileID: 8832611678248516755, guid: 8f43c3aad24438d4ca461c3a44a062b0, type: 3}
-  - {fileID: 3220508457266557383, guid: 4969609c72dae97468a26e04e3de455d, type: 3}
+  - {fileID: 6196892536322905357, guid: b7008fa264bff08438272413b77ae48b, type: 3}
+  - {fileID: 27078193254818083, guid: 2c9460d61d5b1574f96624b86c76a891, type: 3}
+  - {fileID: 114568371261668849, guid: 0b8c0020b39b3614ba7c0e36165a23c6, type: 3}
   MinX: 0
   MaxX: 10
   Y: 1
@@ -1761,7 +1761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2123f6304d1814ba10ecd7debf32f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
 --- !u!4 &1472008356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400080, guid: f1d84cc28597f5641a3d9cbc4df7e306, type: 3}
@@ -1826,7 +1825,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b2123f6304d1814ba10ecd7debf32f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mode: 0
 --- !u!1 &1501747798
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,7 +2102,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1024, y: 720}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
