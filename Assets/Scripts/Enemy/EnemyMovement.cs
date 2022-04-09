@@ -30,4 +30,9 @@ public class EnemyMovement : MonoBehaviour
            nav.enabled = false;
         }
     }
+
+    // public void speedUpdater(float speedMult)
+    // {
+    //     nav.speed *= speedMult;
+    // }
 }

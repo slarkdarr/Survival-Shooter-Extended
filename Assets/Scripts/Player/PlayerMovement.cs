@@ -3,9 +3,10 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float maxspeed;
+    public float maxspeed = 12f;
     public float speed = 6f;
     public Slider speedSlider;
+    
     Vector3 movement;
     Animator animation;
     Rigidbody playerRigidbody;
