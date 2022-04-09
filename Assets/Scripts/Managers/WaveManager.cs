@@ -26,7 +26,7 @@ public class WaveManager : MonoBehaviour
             if (GameLogics.mode == 1) {
                 text.text = "";
             }
-            else if (GameLogics.mode == 1) {
+            else if (GameLogics.mode == 2) {
                 text.text = "Wave: " + waveNum;
             }
 

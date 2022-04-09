@@ -4,10 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class BoardRow : MonoBehaviour
+public class WaveRow : MonoBehaviour
 {
     public TextMeshProUGUI rank;
     public TextMeshProUGUI name;
+    public TextMeshProUGUI wave;
     public TextMeshProUGUI score;
 
     // Start is called before the first frame update

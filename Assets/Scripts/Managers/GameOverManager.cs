@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;       
-    public float restartDelay = 3f;            
+    public float restartDelay = 2f;            
 
     Animator animation;                          
     float restartTimer;                    
@@ -25,8 +25,8 @@ public class GameOverManager : MonoBehaviour
             restartTimer += Time.deltaTime;
 
             if (restartTimer >= restartDelay)
-            {
-                SceneManager.LoadScene("MainMenu");
+            {   
+                SceneManager.LoadScene("GameOver");
                 // Application.LoadLevel(Application.loadedLevel);
             }
         }

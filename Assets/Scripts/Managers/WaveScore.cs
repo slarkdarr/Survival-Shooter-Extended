@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class ScoreClass : MonoBehaviour
+public class WaveScore : MonoBehaviour
 {
     public string name;
+    public int wave;
     public float score;
 
-    public ScoreClass(string newname, float newscore) {
+    public WaveScore(string newname, int newwave, float newscore) {
         name = newname;
+        wave = newwave;
         score = newscore;
     }
 }
+
