@@ -5,7 +5,8 @@ public class EnemyHealth : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
-    // public int scoreValue = 10;
+    public int scoreValue = 10;
+    public int weight = 1;
     public AudioClip deathClip;
     
     Animator animation;
@@ -16,9 +17,9 @@ public class EnemyHealth : MonoBehaviour
     bool isSinking;
     
     // ORB IMPLEMENTED
-    // GameObject player;
+    GameObject player;
     // PlayerMovement pmovement;
-    // PlayerHealth phealth;
+    PlayerHealth phealth;
     // PlayerShooting pshooting;
 
 
@@ -33,9 +34,9 @@ public class EnemyHealth : MonoBehaviour
 
         // ORB IMPLEMENTED
         // EDIT
-        // player = GameObject.FindGameObjectWithTag ("Player");
+        player = GameObject.FindGameObjectWithTag ("Player");
         // pmovement = player.GetComponent <PlayerMovement> ();
-        // phealth = player.GetComponent <PlayerHealth> ();
+        phealth = player.GetComponent <PlayerHealth> ();
         // pshooting = player.GetComponentInChildren <PlayerShooting> ();
     }
 
@@ -46,6 +47,7 @@ public class EnemyHealth : MonoBehaviour
         {
             transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
         }
+
     }
 
 
@@ -111,6 +113,9 @@ public class EnemyHealth : MonoBehaviour
 
         enemyAudio.clip = deathClip;
         enemyAudio.Play ();
+        phealth.scoreTemp += scoreValue;
+        EnemyManager.enemyKilled += 1;
+
     }
 
 

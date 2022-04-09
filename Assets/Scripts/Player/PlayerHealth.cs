@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+    public float scoreTemp = 0;
 
 
     Animator animation;
@@ -20,9 +21,7 @@ public class PlayerHealth : MonoBehaviour
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
     bool isDead;                                                
-    bool damaged;          
-                                     
-
+    bool damaged;
 
     void Awake()
     {
@@ -51,6 +50,9 @@ public class PlayerHealth : MonoBehaviour
 
         if (GameLogics.mode == 1) {
             ScoreManager.score +=  Time.deltaTime;
+        }
+        else if (GameLogics.mode == 2) {
+            ScoreManager.score = scoreTemp;
         }
 
         damaged = false;
