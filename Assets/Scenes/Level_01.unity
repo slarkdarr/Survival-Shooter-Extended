@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45061505, g: 0.498609, b: 0.56437516, a: 1}
+  m_IndirectSpecularColor: {r: 0.4506148, g: 0.49860865, b: 0.56437486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -954,6 +954,8 @@ MonoBehaviour:
   - {fileID: 2126299262}
   enemyPrefab:
   - {fileID: 5637954894962195572, guid: b430ec1be0cbc3b4b84ebcac27fd4ca8, type: 3}
+  waveWeightUsed: 0
+  enemySpawned: 0
 --- !u!114 &933649765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,6 +975,8 @@ MonoBehaviour:
   - {fileID: 298420552}
   enemyPrefab:
   - {fileID: 332065721524361551, guid: 1f1c556a4a0c2cf4689949e9eef2603a, type: 3}
+  waveWeightUsed: 0
+  enemySpawned: 0
 --- !u!114 &933649766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -996,6 +1000,8 @@ MonoBehaviour:
   - {fileID: 5331841656405923283, guid: 5068decc9d6cc8d46bc6c5f540a1cdec, type: 3}
   - {fileID: 332065721524361551, guid: 1f1c556a4a0c2cf4689949e9eef2603a, type: 3}
   - {fileID: 5637954894962195572, guid: b430ec1be0cbc3b4b84ebcac27fd4ca8, type: 3}
+  waveWeightUsed: 0
+  enemySpawned: 0
 --- !u!4 &933649767
 Transform:
   m_ObjectHideFlags: 0
@@ -1396,7 +1402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -10, y: -27.3}
+  m_AnchoredPosition: {x: -10, y: -95}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283316868
@@ -1787,6 +1793,7 @@ MonoBehaviour:
   deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
   flashSpeed: 5
   flashColour: {r: 1, g: 0, b: 0, a: 0.1}
+  scoreTemp: 0
 --- !u!114 &1472008358
 MonoBehaviour:
   m_ObjectHideFlags: 0

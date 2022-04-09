@@ -31,6 +31,10 @@ public class ScoreManager : MonoBehaviour
         return zenScores.OrderByDescending(x => x.score);
     }
 
+    public IEnumerable<WaveScore> getHighScoresWave() {
+        return waveScores.OrderByDescending(x => x.score);
+    }
+
     public static void AddScoreZen(ZenScore score) {
         zenScores.Add(score);
     }

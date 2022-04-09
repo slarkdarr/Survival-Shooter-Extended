@@ -5,7 +5,8 @@ using System.Linq;
 
 public class BoardUI : MonoBehaviour
 {
-    public BoardRow rows;
+    public ZenRow zens;
+    public WaveRow waves;
     public ScoreManager scoreManager;
 
     // Start is called before the first frame update
@@ -14,9 +15,19 @@ public class BoardUI : MonoBehaviour
         if (GameLogics.boardMode == 1) {
             var scores = scoreManager.getHighScoresZen().ToArray();
             for (int i=0;i<scores.Length;i++) {
-                var row = Instantiate(rows, transform).GetComponent<BoardRow>();
+                var row = Instantiate(zens, transform).GetComponent<ZenRow>();
                 row.rank.text = (i+1).ToString();
                 row.name.text = scores[i].name;
+                row.score.text = scores[i].score.ToString();
+            }
+        }
+        else if (GameLogics.boardMode == 2) {
+            var scores = scoreManager.getHighScoresWave().ToArray();
+            for (int i=0;i<scores.Length;i++) {
+                var row = Instantiate(waves, transform).GetComponent<WaveRow>();
+                row.rank.text = (i+1).ToString();
+                row.name.text = scores[i].name;
+                row.wave.text = scores[i].wave.ToString();
                 row.score.text = scores[i].score.ToString();
             }
         }

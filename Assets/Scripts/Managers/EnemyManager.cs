@@ -16,6 +16,10 @@ public class EnemyManager : MonoBehaviour
     void Start ()
     {
         InvokeRepeating("Spawn", spawnTime, spawnTime);
+        WaveManager.waveNum = 1;
+        WaveManager.waveWeight = 5;
+        enemyKilled = 0;
+        enemySpawned = 0;
     }
 
 

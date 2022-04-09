@@ -13,14 +13,17 @@ public class GameOverScript : MonoBehaviour
     void Start()
     {
         if (GameLogics.mode == 1) {
-            score.text = ScoreManager.score.ToString();
+            score.text = "Score: " + ScoreManager.score.ToString();
             ScoreManager.AddScoreZen(new ZenScore(GameLogics.name, ScoreManager.score));
         }
-        else {
+        else if (GameLogics.mode == 2) {
             wave.enabled = true;
-            // wave.text = wave;
-            score.text = ScoreManager.score.ToString();
-            // ScoreManager.AddScoreWave(new ZenScore(GameLogics.name, wave, ScoreManager.score));
+            wave.text = "Wave: " + WaveManager.waveNum.ToString();
+            score.text = "Score: " + ScoreManager.score.ToString();
+            ScoreManager.AddScoreWave(new WaveScore(GameLogics.name, WaveManager.waveNum, ScoreManager.score));
+            Debug.Log(ScoreManager.waveScores[0].name);
+            Debug.Log(ScoreManager.waveScores[0].wave);
+            Debug.Log(ScoreManager.waveScores[0].score);
         }
     }
 }
