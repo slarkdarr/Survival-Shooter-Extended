@@ -7,12 +7,13 @@ public class PlayerShooting : MonoBehaviour
 {
     public int initialDamage = 20;             
     public float timeBetweenBullets = 0.15f;        
+    public int diag = 0;
     public float range = 5f;                      
     public int power = 1;
     public int maxpower = 10;
+    public int maxdiag = 2;
     public float maxspeed = 0.075f;
     public float maxrange = 100f;
-    public float slow = 1f;
     public Slider powerSlider;
 
     float timer;                                    
@@ -35,8 +36,8 @@ public class PlayerShooting : MonoBehaviour
     float effectsDisplayTime = 0.2f;                
     List<LineRenderer> lines = new List<LineRenderer>();
     Material lineMaterial;
-
-    int rand = 0;
+    bool firstDiagUpgrade = false;
+    bool secondDiagUpgrade = false;
 
 
     void Awake()
@@ -48,11 +49,28 @@ public class PlayerShooting : MonoBehaviour
         gunLight = GetComponent<Light>();
         powerSlider = GameObject.Find("PowerSlider").GetComponent<Slider>();
         powerSlider.minValue = initPower;
+    }
+
+    void Update()
+    {
+        timer += Time.deltaTime;
+
+        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)
+        {
+            Shoot();
+        }
+
+        if (timer >= timeBetweenBullets * effectsDisplayTime)
+        {
+            DisableEffects();
+        }
 
         // Additional gunline
 
-        if (rand != 0)
+        if (diag != 0 && (firstDiagUpgrade || secondDiagUpgrade))
         {
+            firstDiagUpgrade = false;
+
             lineMaterial = Resources.Load("LineRenderMaterial", typeof(Material)) as Material;
 
             gunLine2 = new GameObject().AddComponent<LineRenderer>();
@@ -70,8 +88,10 @@ public class PlayerShooting : MonoBehaviour
             lines.Add(gunLine2);
             lines.Add(gunLine3);
 
-            if (rand == 2)
+            if (diag == 2 && secondDiagUpgrade)
             {
+                secondDiagUpgrade = false;
+
                 gunLine4 = new GameObject().AddComponent<LineRenderer>();
                 gunLine4.gameObject.name = "GunLine4";
                 gunLine4.gameObject.transform.SetParent(transform, false);
@@ -87,27 +107,12 @@ public class PlayerShooting : MonoBehaviour
                 lines.Add(gunLine4);
                 lines.Add(gunLine5);
             }
-        }
 
-        foreach (var line in lines)
-        {
-            line.material = lineMaterial;
-            line.SetWidth(0.05f, 0.05f);
-        }
-    }
-
-    void Update()
-    {
-        timer += Time.deltaTime;
-
-        if (Input.GetButton("Fire1") && timer >= timeBetweenBullets)
-        {
-            Shoot();
-        }
-
-        if (timer >= timeBetweenBullets * effectsDisplayTime)
-        {
-            DisableEffects();
+            foreach (var line in lines)
+            {
+                line.material = lineMaterial;
+                line.SetWidth(0.05f, 0.05f);
+            }
         }
     }
 
@@ -116,11 +121,12 @@ public class PlayerShooting : MonoBehaviour
         gunLight.enabled = false;
         gunLine.enabled = false;
         
-        if (rand != 0)
+        if (diag != 0)
         {
             gunLine2.enabled = false;
             gunLine3.enabled = false;
-            if (rand == 2)
+            
+            if (diag == 2)
             {
                 gunLine4.enabled = false;
                 gunLine5.enabled = false;
@@ -131,6 +137,18 @@ public class PlayerShooting : MonoBehaviour
     public void powerUpdater() {
         power += 1;
         powerSlider.value = power;
+    }
+
+    public void addWeaponDiagonal() {
+        diag += 1;
+        if (diag == 1)
+        {
+            firstDiagUpgrade = true;
+        }
+        if (diag == 2)
+        {
+            secondDiagUpgrade = true;
+        }
     }
 
     public void speedUpdater() {
@@ -158,7 +176,7 @@ public class PlayerShooting : MonoBehaviour
         shootRay.origin = transform.position;
         shootRay.direction = transform.forward; 
 
-        if (rand == 0)
+        if (diag == 0)
         {
             if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
             {
@@ -194,7 +212,7 @@ public class PlayerShooting : MonoBehaviour
             shootRay3.origin = transform.position;
             shootRay3.direction = Quaternion.Euler(0,-22,0) * transform.forward;
 
-            if (rand == 1)
+            if (diag == 1)
             {
                 if (Physics.Raycast(shootRay, out shootHit, range, shootableMask))
                 {
