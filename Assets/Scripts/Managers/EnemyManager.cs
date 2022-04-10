@@ -13,6 +13,8 @@ public class EnemyManager : MonoBehaviour
     public static int enemyKilled = 0;
     public int enemySpawned = 0;
 
+    int bossSpawned = 0;
+
     void Start ()
     {
         InvokeRepeating("Spawn", spawnTime, spawnTime);
@@ -56,9 +58,8 @@ public class EnemyManager : MonoBehaviour
                 return;
             }
 
-            if (WaveManager.waveNum % 3 == 0) {
-                Instantiate(enemyPrefab[5], spawnPoints[5].position, spawnPoints[5].rotation);
-                enemySpawned += 1;
+            if (WaveManager.waveNum % 3 == 1) {
+                bossSpawned = 0;
             }
 
             while (waveWeightUsed < WaveManager.waveWeight) {
@@ -86,6 +87,12 @@ public class EnemyManager : MonoBehaviour
                 enemy = enemyPrefab[spawnEnemy];
                 enemyHealth = enemy.GetComponent<EnemyHealth>();
                 enemyWeight = enemyHealth.weight;
+
+                if (WaveManager.waveNum % 3 == 0 && bossSpawned < 1) {
+                    Instantiate(enemyPrefab[5], spawnPoints[5].position, spawnPoints[5].rotation);
+                    enemySpawned += 1;
+                    bossSpawned += 1;
+                }
 
                 if ((enemyWeight + waveWeightUsed) <= WaveManager.waveWeight) {
                     Instantiate(enemyPrefab[spawnEnemy], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
