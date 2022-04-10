@@ -64,7 +64,7 @@ public class EnemyManager : MonoBehaviour
             if (waveWeightUsed == WaveManager.waveWeight) {
                 if (enemyKilled == enemySpawned) {
                     WaveManager.waveNum += 1;
-                    WaveManager.waveWeight *= 2;
+                    WaveManager.waveWeight += 10;
                     waveWeightUsed = 0;
                 }
             }
