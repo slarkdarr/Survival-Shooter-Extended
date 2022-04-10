@@ -62,7 +62,13 @@ Survival Shooter: Extended merupakan permainan ekstensi Survival Shooter dari Un
 
 ## Library
 
-Add here
+- UnityEngine -> Untuk melakukan import terhadap kelas-kelas di dalam Unity yang telah diimplementasi
+- UnityEngine.UI -> Untuk mendapatkan atribut dari setiap UI component di Unity
+- UnityEngine.SceneManagement -> Melakukan manajemen scene pada saat run-time
+- System.Collections -> Memberikan struktur data tambahan yang kompatibel dengan Unity
+- System.Collections.Generic -> Memberikan struktur data generik tambahan yang kompatibel dengan Unity
+- System.Linq -> Melakukan query terhadap data source
+- TMPro -> Mendapatkan atribut dari TextMeshPro yang menggunakan teknik Advanced Text Rendering
 
 ## Screenshot
 
@@ -70,4 +76,11 @@ Add here
 
 ## Pembagian Kerja
 
-Add here
+13519107 - Daffa Ananda Pratama R:
+Implementasi Power Attribute, Additional Mobs, Weapon Upgrade, dan README  
+
+13519141 - Naufal Yahya Kurnianto:
+Implementasi Speed Attribute, Orbs, Local Scoreboard, Main Menu, Game Over  
+
+13519201 - M Rayhan Ravianda:
+Implementasi Health Attribute dan Game Mode
