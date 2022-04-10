@@ -35,6 +35,15 @@ public class EnemyManager : MonoBehaviour
 
             int spawnPointIndex = Random.Range (0, spawnPoints.Length);
             int spawnEnemy = Random.Range(0,enemyPrefab.Length);
+
+            if (spawnEnemy == 4) {
+                spawnPointIndex = Random.Range (3,4);
+            }
+
+            if (spawnEnemy == 5) {
+                spawnPointIndex = 5;
+            }
+
             Instantiate(enemyPrefab[spawnEnemy], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
         }
 
@@ -55,15 +64,24 @@ public class EnemyManager : MonoBehaviour
 
             while (waveWeightUsed < WaveManager.waveWeight) {
                 int spawnPointIndex = Random.Range (0, spawnPoints.Length);
+                int spawnEnemy = 0;
 
                 if (WaveManager.waveNum <= 3) {
-                    int spawnEnemy = Random.Range(0,3);
+                    spawnEnemy = Random.Range(0,3);
                 }
                 else if (WaveManager.waveNum <= 6) {
-                    int spawnEnemy = Random.Range(0,4);
+                    spawnEnemy = Random.Range(0,4);
                 }
                 else if (WaveManager.waveNum <= 9) {
-                    int spawnEnemy = Random.Range(0,5);
+                    spawnEnemy = Random.Range(0,5);
+                }
+
+                if (spawnEnemy == 4) {
+                    spawnPointIndex = Random.Range (3,4);
+                }
+
+                if (spawnEnemy == 5) {
+                    spawnPointIndex = 5;
                 }
                 
                 enemy = enemyPrefab[spawnEnemy];

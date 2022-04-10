@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45061505, g: 0.498609, b: 0.56437516, a: 1}
+  m_IndirectSpecularColor: {r: 0.4506148, g: 0.49860865, b: 0.56437486, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1552,6 +1552,7 @@ GameObject:
   - component: {fileID: 933649767}
   - component: {fileID: 933649766}
   - component: {fileID: 933649764}
+  - component: {fileID: 933649765}
   m_Layer: 0
   m_Name: EnemyManager
   m_TagString: Untagged
@@ -1573,14 +1574,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 1472008357}
   enemy: {fileID: 0}
-  spawnTime: 5
+  spawnTime: 3
   spawnPoints:
   - {fileID: 1681032373}
   enemyPrefab:
   - {fileID: 4937063094208454705, guid: 1177e42f400c3af4da5afdc22afb92f1, type: 3}
   waveWeightUsed: 0
   enemySpawned: 0
---- !u!114 &933649766
+--- !u!114 &933649765
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1596,18 +1597,40 @@ MonoBehaviour:
   enemy: {fileID: 0}
   spawnTime: 3
   spawnPoints:
+  - {fileID: 673906570}
+  - {fileID: 1244536456}
+  enemyPrefab:
+  - {fileID: 3658252484654276012, guid: dfab8e41d423fa24b99bbafdb32e821b, type: 3}
+  waveWeightUsed: 0
+  enemySpawned: 0
+--- !u!114 &933649766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933649763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: {fileID: 1472008357}
+  enemy: {fileID: 0}
+  spawnTime: 3
+  spawnPoints:
   - {fileID: 1804177053}
   - {fileID: 298420552}
   - {fileID: 2126299262}
+  - {fileID: 673906570}
+  - {fileID: 1244536456}
+  - {fileID: 1681032373}
   enemyPrefab:
   - {fileID: 5331841656405923283, guid: 5068decc9d6cc8d46bc6c5f540a1cdec, type: 3}
   - {fileID: 332065721524361551, guid: 1f1c556a4a0c2cf4689949e9eef2603a, type: 3}
-<<<<<<< HEAD
   - {fileID: 5637954894962195572, guid: b430ec1be0cbc3b4b84ebcac27fd4ca8, type: 3}
   - {fileID: 37786173553037961, guid: eaa5262545203f543aabcbae3b83bf65, type: 3}
   - {fileID: 3658252484654276012, guid: dfab8e41d423fa24b99bbafdb32e821b, type: 3}
-=======
->>>>>>> cb39918a780d0b8d354c7710de88acf319ea15d9
   - {fileID: 4937063094208454705, guid: 1177e42f400c3af4da5afdc22afb92f1, type: 3}
   waveWeightUsed: 0
   enemySpawned: 0

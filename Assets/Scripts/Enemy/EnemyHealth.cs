@@ -111,12 +111,11 @@ public class EnemyHealth : MonoBehaviour
         capsuleCollider.isTrigger = true;
 
         animation.SetTrigger ("DEAD");
-
         enemyAudio.clip = deathClip;
         enemyAudio.Play ();
         phealth.scoreTemp += scoreValue;
         EnemyManager.enemyKilled += 1;
-
+        Destroy(gameObject, 2f);
     }
 
 

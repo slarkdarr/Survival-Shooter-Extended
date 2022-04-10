@@ -1325,18 +1325,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9d14572410594cb85d40eedfb150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 300
+  startingHealth: 50
   currentHealth: 0
   sinkSpeed: 2.5
-<<<<<<< HEAD
   scoreValue: 500
   weight: 5
-  deathClip: {fileID: 0}
-=======
-  scoreValue: 10
-  weight: 2
-  deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
->>>>>>> cb39918a780d0b8d354c7710de88acf319ea15d9
+  deathClip: {fileID: 8300000, guid: 8c615fd0429f34edf85539d70279360d, type: 3}
 --- !u!114 &5401119958732238577
 MonoBehaviour:
   m_ObjectHideFlags: 0
