@@ -61,12 +61,12 @@ public class BomberAttack : MonoBehaviour
     {
         timer = 0f;
         Debug.Log("DAMMAGED");
+
+        animation.SetTrigger ("NearPlayer");
         if (playerHealth.currentHealth > 0)
         {
             playerHealth.TakeDamage (attackDamage);
         }
-        
-        animation.SetTrigger ("NearPlayer");
         Destroy (gameObject, 2f);
     }
 }
