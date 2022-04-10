@@ -2,91 +2,72 @@
 
 Survival Shooter: Extended
 
-## Getting started
+## Deskripsi Aplikasi
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Survival Shooter: Extended merupakan permainan ekstensi Survival Shooter dari Unity Learn di mana terdapat beberapa fitur tambahan pada permainan ini, misalnya *orbs*, *weapon upgrade*, dan *additional mobs*. Survival Shooter sendiri adalah sebuah permainan 3D sederhana di mana pemain harus berusaha bertahan dari serangan boneka-boneka zombie dengan cara menembaknya.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Cara Kerja Aplikasi
 
-## Add your files
+- Saat aplikasi dijalankan, pemain akan diarahkan ke Main Menu. Di Main Menu, terdapat empat buah opsi, yaitu:
+    - "Play" -> Opsi ini akan memulai permainan dengan mode *default* adalah **Zen/Endless Mode**
+    - "Settings" -> Opsi ini akan membuka *settings* dari permainan. Di *settings*, pemain dapat menentukan nama pemain dan memilih *Game Mode*
+    - "Board" -> Opsi ini akan membuka **Local Scoreboard** dari permainan. **Local Scoreboard** ini sendiri terbagi menjadi dua, yaitu *scoreboard* untuk **Zen/Endless Mode** dan **Wave Mode**:
+        - **Local Scoreboard Zen/Endless Mode** -> Menampilkan nama pemain, dan waktu *survival*
+        - **Local Scoreboard Wave Mode** -> Menampilkan nama pemain, *wave* terjauh dan skor total yang didapat dalam satu kali bermain
+    - "Quit" -> Opsi ini akan menutup permainan
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+- Setelah pemain menentukan nama pemain dan memilih **Game Mode** (jika diinginkan) melalui opsi **Settings**, pemain dapat memulai permainan dengan menekan opsi **Play**
 
-```
-cd existing_repo
-git remote add origin https://gitlab.informatika.org/daffan02/if3210-2022-unity-27.git
-git branch -M main
-git push -uf origin main
-```
+- Pemain memiliki beberapa atribut dengan spesifikasi sebagai berikut:
+    - Terdapat tiga atribut yang ada, yakni:
+        - ⚔️ Power -> Menyatakan kekuatan shoot pemain
+        - ⚡ Speed -> Menyatakan kecepatan pemain dalam bergerak
+        - ❤️ Health -> Menyatakan jumlah nyawa pemain
+    - Setiap atribut ditampilkan pada layar
+    - Setiap atribut memiliki nilai awal dan batas maksimal tertentu
 
-## Integrate with your tools
+- Jika pemain memulai permainan dengan mode **Zen/Endless Mode**:
+    - Mobs akan ter-*spawn* secara *random* di *map* setiap beberapa detik sekali. Mobs yang ada meliputi Zombunny, Zombear, Hellephant, Skeleton, Bomber, dan Boss
+    - Orbs juga akan ter-*spawn* secara *random* di *map* setiap beberapa detik sekali
+    - Setiap 15 detik sekali, pemain dapat memilih sebuah *weapon upgrade*
+    - Skor akhir permainan dihitung berdasarkan waktu *survival* pemain
 
-- [ ] [Set up project integrations](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/settings/integrations)
+- Jika pemain memulai permainan dengan mode **Wave Mode**:
+    - Setiap *wave* akan memiliki kapasitas bobot (*weight*) untuk musuh yang di-*spawn*
+    - Setiap *wave* memiliki *pool* musuh yang mungkin keluar
+    - Musuh semakin sulit untuk tiap *wave*, dalam kata lain tiap *wave* memiliki kapasitas bobot yang meningkat
+    - Setiap *wave* dengan nomor kelipatan 3, akan memiliki sebuah *boss mob* sebagai lawan dan beberapa *mobs* lain. *Boss mob* ini tidak memiliki bobot
+    - Setiap menyelesaikan *wave boss*, pemain dapat memilih sebuah *weapon upgrade*
+    - Batas jumlah maksimal *wave* adalah 9
+    - Mobs biasa seperti Zombunny, Zombear, dan Hellephant akan muncul sejak *wave* pertama
+    - Mobs lainnya, yaitu Skeleton akan muncul sejak *wave* 4 dan Bomber akan muncul sejak *wave* 7
+    - Pada setiap *wave*, setiap musuh yang dibunuh memberikan skor yang telah ditentukan
 
-## Collaborate with your team
+- Permainan akan selesai ketika jumlah nyawa pemain 0
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+- Saat permainan selesai, akan tampil layar **Game Over** yang menampilkan performa hasil permainan bergantung *Game Mode*:
+    - **Zen/Endless Mode** -> Menampilkan waktu *survival* permainan
+    - **Wave Mode** -> Menampilkan *wave* dan skor yang didapat
 
-## Test and Deploy
+### Keterangan
+*Orbs* yang ada dalam permainan meliputi:
+- 🟢 Power Orb -> Meningkatkan kekuatan shoot pemain
+- 🟡 Speed Orb -> Meningkatkan kecepatan pemain dalam bergerak
+- 🔴 Health Orb -> Meningkatkan jumlah nyawa pemain  
 
-Use the built-in continuous integration in GitLab.
+*Weapon upgrade* yang ada dalam permainan meliputi:
+- Diagonal Weapon -> Menambahkan 2 bullet ke arah diagonal kiri dan kanan
+- Faster Weapon -> Meningkatkan kecepatan tembak senjata
+- Longer Range Weapon -> Meningkatkan jarak tembak senjata
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Library
 
-***
+Add here
 
-# Editing this README
+## Screenshot
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Add here
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Pembagian Kerja
 
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Add here
