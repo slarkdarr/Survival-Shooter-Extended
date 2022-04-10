@@ -135,7 +135,7 @@ Animator:
   m_GameObject: {fileID: 5331841656405923283}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: be66986effd141b4992d2d78be127139, type: 3}
-  m_Controller: {fileID: 9100000, guid: 1ba5734b555ae254794bef30e6553544, type: 2}
+  m_Controller: {fileID: 9100000, guid: cd0d9dd8447c54240994ab03472b8baf, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -347,6 +347,7 @@ MonoBehaviour:
   currentHealth: 0
   sinkSpeed: 2.5
   scoreValue: 100
+  weight: 1
   deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
 --- !u!1001 &5331841656030225593
 PrefabInstance:
