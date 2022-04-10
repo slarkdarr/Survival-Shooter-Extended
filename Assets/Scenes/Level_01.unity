@@ -1566,7 +1566,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933649763}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76a99222b1e4a384e923ac7e86efc709, type: 3}
   m_Name: 
@@ -1603,6 +1603,9 @@ MonoBehaviour:
   - {fileID: 5331841656405923283, guid: 5068decc9d6cc8d46bc6c5f540a1cdec, type: 3}
   - {fileID: 332065721524361551, guid: 1f1c556a4a0c2cf4689949e9eef2603a, type: 3}
   - {fileID: 5637954894962195572, guid: b430ec1be0cbc3b4b84ebcac27fd4ca8, type: 3}
+  - {fileID: 37786173553037961, guid: eaa5262545203f543aabcbae3b83bf65, type: 3}
+  - {fileID: 3658252484654276012, guid: dfab8e41d423fa24b99bbafdb32e821b, type: 3}
+  - {fileID: 4937063094208454705, guid: 1177e42f400c3af4da5afdc22afb92f1, type: 3}
   waveWeightUsed: 0
   enemySpawned: 0
 --- !u!4 &933649767

@@ -47,9 +47,25 @@ public class EnemyManager : MonoBehaviour
                 return;
             }
 
+            if (WaveManager.waveNum % 3 == 0) {
+                int spawnPointIndex = Random.Range (0, spawnPoints.Length);
+                Instantiate(enemyPrefab[5], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                enemySpawned += 1;
+            }
+
             while (waveWeightUsed < WaveManager.waveWeight) {
                 int spawnPointIndex = Random.Range (0, spawnPoints.Length);
-                int spawnEnemy = Random.Range(0,enemyPrefab.Length);
+
+                if (WaveManager.waveNum <= 3) {
+                    int spawnEnemy = Random.Range(0,3);
+                }
+                else if (WaveManager.waveNum <= 6) {
+                    int spawnEnemy = Random.Range(0,4);
+                }
+                else if (WaveManager.waveNum <= 9) {
+                    int spawnEnemy = Random.Range(0,5);
+                }
+                
                 enemy = enemyPrefab[spawnEnemy];
                 enemyHealth = enemy.GetComponent<EnemyHealth>();
                 enemyWeight = enemyHealth.weight;

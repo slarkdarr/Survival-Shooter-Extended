@@ -25481,11 +25481,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9b9d14572410594cb85d40eedfb150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 50
+  startingHealth: 200
   currentHealth: 0
   sinkSpeed: 2.5
-  scoreValue: 10
-  weight: 2
+  scoreValue: 400
+  weight: 4
   deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
 --- !u!1 &37802805531217641
 GameObject:
