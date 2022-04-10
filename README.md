@@ -115,11 +115,8 @@ Survival Shooter: Extended merupakan permainan ekstensi Survival Shooter dari Un
 
 ## Pembagian Kerja
 
-13519107 - Daffa Ananda Pratama R:
-Implementasi Power Attribute, Additional Mobs, Weapon Upgrade, dan README  
-
-13519141 - Naufal Yahya Kurnianto:
-Implementasi Speed Attribute, Orbs, Local Scoreboard, Main Menu, Game Over  
-
-13519201 - M Rayhan Ravianda:
-Implementasi Health Attribute dan Game Mode
+| NIM | Nama | Pembagian Kerja |
+| --- | ---- | --------------- |
+| 13519107 | Daffa Ananda Pratama Resyaly | Implementasi Power Attribute, Additional Mobs, Weapon Upgrade, dan README |
+| 13519141 | Naufal Yahya Kurnianto | Implementasi Speed Attribute, Orbs, Local Scoreboard, Main Menu, Game Over |
+| 13519201 | M Rayhan Ravianda | Implementasi Health Attribute dan Game Mode |
