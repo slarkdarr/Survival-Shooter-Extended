@@ -57,8 +57,7 @@ public class EnemyManager : MonoBehaviour
             }
 
             if (WaveManager.waveNum % 3 == 0) {
-                int spawnPointIndex = Random.Range (0, spawnPoints.Length);
-                Instantiate(enemyPrefab[5], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+                Instantiate(enemyPrefab[5], spawnPoints[5].position, spawnPoints[5].rotation);
                 enemySpawned += 1;
             }
 
