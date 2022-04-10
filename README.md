@@ -72,7 +72,46 @@ Survival Shooter: Extended merupakan permainan ekstensi Survival Shooter dari Un
 
 ## Screenshot
 
-Add here
+- Main Menu
+![Main Menu](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Main%20Menu.png)
+- Settings
+![Settings](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Settings.png)
+- Scoreboard Options
+![Scoreboard Options](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Scoreboard%20Options.png)
+- Scoreboard Initial View
+![Scoreboard Initial View](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Scoreboard%20Initial%20View.png)
+
+- Game Start Zen Mode
+![Game Start Zen Mode](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Game%20Start.png)
+- Enemies
+![Enemies](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Enemies.png)
+
+- Game Start Wave Mode
+![Game Start Wave Mode](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Game%20Start%20Wave%20Mode.png)
+- Wave 2 Example
+![Wave 2 Example](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Wave%202%20Example.png)
+- Wave 3 Boss
+![Wave 3 Boss](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Wave%203%20Boss.png)
+
+- GameOver Flash
+![Game Over Flash](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Game%20Over%20Flash.png)
+
+- Orbs Preview
+![Orbs Preview](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Orbs%20Preview.png)
+- Weapon Upgrade
+![Weapon Upgrade](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Weapon%20Upgrade.png)
+
+- Skeleton
+![Skeleton](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Skeleton.png)
+- Bomber
+![Bomber](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Bomber.png)
+- Boss
+![Boss](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Boss.png)
+
+- Zen Scoreboard
+![Zen Scoreboard](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Zen%20Scoreboard.png)
+- Wave Scoreboard
+![Wave Scoreboard](https://gitlab.informatika.org/daffan02/if3210-2022-unity-27/-/raw/main/Screenshot/Wave%20Scoreboard.png)
 
 ## Pembagian Kerja
 
